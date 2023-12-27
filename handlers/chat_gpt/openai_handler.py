@@ -4,7 +4,8 @@ from chat_gpt.openai_completions import ai_resolution
 class Chat_GPT_Handler:
     def get_completion():
         try:
-            response = ai_resolution()
+            response = {"completion": "dummy completion", "topic": "health"}
+            #response = ai_resolution() chatgpt function
             if response:
                 return response
         except Exception as e:
