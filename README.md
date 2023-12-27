@@ -13,6 +13,10 @@
   	"topic": "health"
   }
   ```
+- **Topic Array:**
+  ```
+  random_topics = ["health", "career", "finance", "love", "family", "investments", "friendships", "opportunities"]
+  ```
 
 ### 2. User Registration:
 
