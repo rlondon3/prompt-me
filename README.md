@@ -1,5 +1,10 @@
 # Project README
 
+## Start the App:
+
+- **With Database:** `flask run`
+- **Without Database:** `flask no_db`
+
 ## Endpoints:
 
 ### 1. ChatGPT Resolution:
