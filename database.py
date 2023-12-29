@@ -35,16 +35,6 @@ def connect():
         return {
             "Error Message": str(e)
         }
+    finally:
+        connection.close()
     
-def disconnect():
-    print("Disconnecting from the database...")
-    global connection  # Use the global keyword to access the module-level variable
-
-    try:
-        if connection is not None and connection.closed == 0:
-            connection.close()
-            print("Database connection closed.")
-        else:
-            print("No active database connection to close.")
-    except Exception as e:
-        print("Error while disconnecting:", str(e))
