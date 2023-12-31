@@ -1,15 +1,16 @@
-from models.user.user import User_Store
+from flaskr.models.user.user import User_Store
 from flask import request
 
 # Create an instance of the User_Store class
 store = User_Store()
+
 
 class User_Handler:
     def register_user():
         """Registers a new user based on JSON data provided in the request."""
         try:
             data = request.get_json()
-            email = data['email']
+            email = data["email"]
             user = store.create(email)
             if user:
                 return {"data": user}
@@ -43,7 +44,7 @@ class User_Handler:
         try:
             user_id = id
             data = request.get_json()
-            email = data['email']
+            email = data["email"]
             user = store.update(user_id, email)
             if user:
                 return user
@@ -62,12 +63,21 @@ class User_Handler:
             # Handle exceptions and return an error message
             return {"errors": [str(e)]}
 
+
 # Define routes for user-related operations
 def user_route(app):
-    app.add_url_rule("/users/register", "register_user", User_Handler.register_user, methods=["POST"])
-    app.add_url_rule("/admin/users", "show_users", User_Handler.get_users, methods=["GET"])
-    app.add_url_rule("/admin/user/<int:id>", "show_user", User_Handler.get_user, methods=["GET"])
-    app.add_url_rule("/users/<int:id>", "update_user", User_Handler.update_user, methods=["PUT"])
-    app.add_url_rule("/users/<int:id>", "delete_user", User_Handler.delete_user, methods=["DELETE"])
-
-
+    app.add_url_rule(
+        "/users/register", "register_user", User_Handler.register_user, methods=["POST"]
+    )
+    app.add_url_rule(
+        "/admin/users", "show_users", User_Handler.get_users, methods=["GET"]
+    )
+    app.add_url_rule(
+        "/admin/user/<int:id>", "show_user", User_Handler.get_user, methods=["GET"]
+    )
+    app.add_url_rule(
+        "/users/<int:id>", "update_user", User_Handler.update_user, methods=["PUT"]
+    )
+    app.add_url_rule(
+        "/users/<int:id>", "delete_user", User_Handler.delete_user, methods=["DELETE"]
+    )
