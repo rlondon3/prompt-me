@@ -85,6 +85,3 @@ random_topic = openai_request_generator.choose_random_topic()
 
 # Generate OpenAI completion for the random topic
 result = openai_request_generator.generate_open_ai_completion(random_topic)
-
-# Use the result in other files
-print(result)
